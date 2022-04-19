@@ -1,7 +1,7 @@
 const addToCart = document.querySelector(".cart-items");
 
 const getAllCartItems = () => {
-  axios.get("http://localhost:5050/cart").then((res) => {
+  axios.get("/cart").then((res) => {
     const itemsCart = res.data;
 
     displayItems(itemsCart);
@@ -36,7 +36,7 @@ const creatItemCard = (item) => {
 
 const removeFromCart = (e) => {
     console.log(e.target);
-    axios.put(`http://localhost:5050/cart/${e.target.id}`)
+    axios.put(`/cart/${e.target.id}`)
         . then((res) =>{ 
           const itemsCart = res.data;
 

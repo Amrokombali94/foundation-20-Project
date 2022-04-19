@@ -1,7 +1,7 @@
 const shoppingItems = document.querySelector(".shopping-items");
 
 const getAllItems = () => {
-  axios.get("http://localhost:5050/items").then((res) => {
+  axios.get("/items").then((res) => {
     const items = res.data;
 
     displayItems(items);
@@ -37,7 +37,7 @@ const creatItemCard = (item) => {
 
 const addToCart = (e) => {
   console.log(e.target);
-  axios.put(`http://localhost:5050/items/${e.target.id}`)
+  axios.put(`/items/${e.target.id}`)
   .then(res => console.log(1, res))
         .catch(err => console.log(err))
 };

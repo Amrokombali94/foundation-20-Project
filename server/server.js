@@ -8,10 +8,18 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+app.use(express.static('clients'))
+
+
 
 const {seed} = require('./seed.js')
 
 const {getAllItems, getAllCartItems, addToCart, removeFromCart} = require('./controller')
+const res = require('express/lib/response')
+
+app.get('/', (req, res) =>{
+    res.sendFile(path.join(__dirname,'../clients/home.html'))
+})
 
 app.post('/seed', seed)
 
